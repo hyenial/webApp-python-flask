@@ -1,0 +1,25 @@
+{% block content %}
+{% include "header.html" %}
+<html lang="en">
+  
+        <title> creating new book</title>
+</head>
+
+<h1 style="background-color: #80ced6" align="center"><b> Delete Book Item Admin site</b> </h1>
+<body>
+        <div class="alert alert-danger" role="alert">
+        <h3>Are you sure you want to DELETE  in catagory {{item.genre}} , book {{item.title}} book</h3>      
+        </div>
+
+        <form action="{{ url_for('deleteBookItem', bookstore_id=item.bookstore_id, genre_id=item.id)}}" method = 'post'>
+
+                <input type='submit', value = 'Delete' class="btn btn-danger">
+                <a href = '{{url_for('showBooks', bookstore_id=item.bookstore_id)}}' class="btn btn-success"> Back to Menu </a>
+
+        </form>
+
+
+</body>
+{% endblock %}
+
+</html>

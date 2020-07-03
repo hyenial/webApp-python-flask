@@ -1,0 +1,80 @@
+{% block content %}
+{% include "header.html" %}
+<html lang="en">
+
+        <title> creating new book</title>
+</head>
+
+<h1 style="background-color: #80ced6" align="center"><b> Add a New Book Item Admin site</b> </h1>
+
+<div class="col-sm-5">
+
+        <form action="#" method='post'>
+                <div class="form-group">
+                        <label for="book genre">Book Genre</label>
+                        <select id="book genre" class="form-control" name="genre" >
+                                <option selected>Choose...</option>
+                                <option>Art</option>
+                                <option>Biography</option>
+                                <option>Business</option>
+                                <option>Children's book</option>
+                                <option>Classics</option>
+                                <option>Comics</option>
+                                <option>Cookbooks</option>
+                                <option>Fantasy</option>
+                                <option>Fiction</option>
+                                <option>History</option>
+                                <option>Horror</option>
+                                <option>Humor and Comedy</option>
+                                <option>Manga</option>
+                                <option>Memoir</option>
+                                <option>Mystery</option>
+                                <option>Nonfiction</option>
+                                <option>Philosophy</option>
+                                <option>Poetry</option>
+                                <option>Religion</option>
+                                <option>Romance</option>
+                                <option>Science</option>
+                                <option>Thriller</option>
+                                <option>Tefsir</option>
+
+                        </select>
+                </div>
+
+                <div class="form-group" >
+                        <label for="Booktitle">Book Title:</label>
+                        <input type='text' name='title' class="form-control"  required >
+                </div>
+                <div class="form-group" >
+                        <label for="Autor">Book Autor:</label>
+                        <input type='text'  name='autor' class="form-control"  required>
+                </div>
+
+                <div class="form-group">
+                        <label for="Bookimage">Book Image:</label>
+                        <input type='text'  name='bookimage' class="form-control" placeholder="Please add url link for book image" required>
+                </div>
+
+                <div class="form-group">
+                        <label for="bookdescription">Description:</label>
+                        <textarea name='description' class="form-control" rows='5' required></textarea>
+                </div>
+
+                <div class="form-group">
+                        <label for="bookprice">Book Price</label>
+                        <input type='text'  name='price' class="form-control"  required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" value='Edit'> submit </button>
+                <a href= '{{url_for('showBooks', bookstore_id= bookstore_id)}}' class="btn btn-danger" >Cancel</a>
+      </form>
+
+
+</div>
+
+
+</body>
+
+{% endblock %}
+
+</html>

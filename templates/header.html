@@ -1,0 +1,73 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  
+</head>
+      
+	<body>
+
+		<!-- Navigation bar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" position="fixed">
+		  <div class="container" position="fixed">
+			<h1 class="mt-4" style="color: #fff">My bookstore APP</h1>
+				  <ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link"  href="{{url_for('home')}}">
+								<span class="glyphicon glyphicon-home"></span>
+									 Home
+							</a>
+
+						</li>
+
+						<li class="nav-item active">
+
+							{%if 'username' not in session %}
+
+								<a class="nav-link" href="{{url_for('showLogin')}}">
+									<span class="glyphicon glyphicon-log-out"></span>
+										Click Here to Login </a>
+							{% else %}
+
+								<a class="nav-link" href="{{url_for('gdisconnect')}}">
+									<span class="glyphicon glyphicon-log-out"></span> Log Out						
+								</a>
+								
+
+							{% endif %}					
+						
+						</li>	
+
+						
+					  </ul>	
+					 
+			  </div>
+
+			  {%if 'username'  in session %}
+
+			<p align='right' style="color: #fff">{{session.username}}
+				<img src="{{session.picture}}" class="rounded-circle" width="50" height="50">
+			</p>
+
+			{% else %}
+
+
+			{% endif %}					
+
+
+
+
+		</nav>
+		 
+
+
+

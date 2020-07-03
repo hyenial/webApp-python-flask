@@ -1,0 +1,33 @@
+{% block content %}
+{% include "header.html" %}
+<html lang="en"> 
+  <title>public books</title>
+  <body>
+<h1 class="mt-5" >Welcome to <i><b>{{bookstore.name}}</b> </i> public view </h1>
+<h2></h2>
+
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="mt-5">Book Catogories ({{ total_items }})  </h1> 
+          {% for i in items %}
+             <h3 style="background-color: #80ced6"><b>{{i.genre}}</b></h3>
+                <p><h4> Title : {{i.title}}</h4></p>
+                <p><h4>Author : {{i.autor}}</h4></p>
+                <p><img src="{{i.bookimage}}" width="266" height="350"></p>
+                <p><i> {{i.description}}</i></p>
+               <p><b>Price: {{i.price}}</b></p>
+               <hr>
+            <br><br>           
+            {% endfor %}
+      </div>
+    </div>
+  </div>
+
+
+</body>
+{% endblock %}
+
+</html>

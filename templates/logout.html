@@ -1,0 +1,29 @@
+{% block content %}
+{% include "header.html" %}
+<title>public view  bookstore App</title>
+
+<div class="alert alert-success" role="alert" >
+<h4>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+      
+    <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+    </ul>
+        {% endif %}
+        {% endwith %}
+</h4>
+</div>
+
+<br><br><br><br><br>
+
+<h1 align='center' class="display-1">Thank you for visiting.... </h1>
+
+
+
+
+
+
+{% endblock %}

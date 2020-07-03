@@ -1,0 +1,128 @@
+{% block content %}
+{% include "header.html" %}
+<title>Admin bookstore</title>
+
+<div class="alert alert-primary" role="alert">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+
+    <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+    </ul>
+        {% endif %}
+        {% endwith %}
+
+</div>
+
+
+
+
+<h1 style="background-color: #80ced6" align="center">
+      Admin View Bookstore
+</h1>
+<br>
+
+<h2 align="center"> Lastly aded items</h2>
+    <table align="center" style="width:75%">
+        <tr>
+            {% for last in lastitems %}
+                <td>
+                    <div> &nbsp;&nbsp;
+                        <div class="card" style="width: 12rem;">
+                            <a href = '{{url_for('showBooks', bookstore_id=last.bookstore_id)}}'>
+                            <img class="card-img-top" src="{{last.bookimage}}" alt="book image" >
+                            </a>
+                            <div class="card-body">
+                                <p style="font-size: 12px"> {{last.genre}}</p>
+                            </div>
+                        </div>
+                     </div>
+                </td>
+            {% endfor %}
+        </tr>
+
+    </table>
+
+<br> <br>
+
+
+<div class="row padding-top padding-bottom">
+    <div class="col-md-1"></div>
+        <div class="col-md-10 padding-none">
+            <h2 style="background-color: #80ced6" align="center">Bookstores ({{ total }})</h2>
+            <h4><i>you can edit your own bookstore</i></h4>
+
+
+
+        <table class="table table-hover">
+
+        <caption>List of Bookstores </caption>
+            <thead>
+               <tr>
+                   <th>
+                    <h4>
+                        <a href="{{url_for('newBookstore')}}">
+                            <button class="btn btn-primary" id="new-bookstore">
+                                 Add Newbookstore
+                                 <span class="glyphicon glyphicon-book"></span>
+                            </button>
+                        </a>
+                        </h4>
+                   </th>
+                    <th><h3>Actions </h3> </th>
+                </tr>
+           </thead>
+
+            <tbody>
+             {% for bookstore in showbookstores %}
+
+               <tr>
+                   <td><a href = "{{url_for('showBooks', bookstore_id = bookstore.id)}}" class="btn btn-light"><h3>{{bookstore.name}}&nbsp;&nbsp;</h3></a></td>
+                   <td><a href="{{url_for('deleteBookstore', bookstore_id = bookstore.id) }}" type="button" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span> DELETE </a>
+
+                        <a href="{{url_for('editBookstore', bookstore_id = bookstore.id) }}" type="button" class="btn btn-success">
+                            <span class="glyphicon glyphicon-pencil"></span> EDIT
+                        </a>
+                   </td>
+               </tr>
+
+           </tbody>
+       {% endfor %}
+
+       </table>
+
+
+</div>
+    </div>
+
+
+
+    <div class="row padding-top padding-bottom">
+        <div class="col-md-1"></div>
+            <div class="col-md-10 padding-none">
+                <h2 style="background-color: #80ced6" align="center">All books ({{ totalbook }})</h2>
+                    <h5><i>here the list of All books  </i></h5>
+                    <p>&nbsp;&nbsp;
+                        {% for books in items %}
+                        <a href = '{{url_for('showBooks', bookstore_id=books.bookstore_id)}}'>
+                            <img src="{{books.bookimage}}"  width="90" height="102">
+                        </a> &nbsp;
+
+                        {% endfor %}
+                    </p>
+
+
+            </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
+
+{% endblock %}

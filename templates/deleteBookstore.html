@@ -1,0 +1,28 @@
+{% block content %}
+{% include "header.html" %}
+<html lang="en">
+  
+<head>
+	<title>delete book store</title>
+</head>
+
+<div class="alert alert-danger" role="alert">
+     <p>   Are you sure you want to delete {{bookstore.name}}? </p>
+</div>
+
+<form action="#" method = 'post'>
+
+<button type="submit" class="btn btn-danger btn-lg" value = 'Delete'> DELETE</button>
+
+<br><br>
+<a class="btn btn-primary" href = '{{url_for('home')}}' role="button">CANCEL</a>
+
+
+</form>
+
+</body>
+
+</html>
+
+
+{% endblock %}

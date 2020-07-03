@@ -1,0 +1,98 @@
+{% block content %}
+{% include "header.html" %}
+<title>Public View  bookstore App</title>
+
+<div class = 'flash'>
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+
+    <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+    </ul>
+        {% endif %}
+        {% endwith %}
+
+</div>
+
+
+
+
+<h1 style="background-color: #80ced6" align="center">
+      My Lovely Bookstore Public view
+</h1>
+<br>
+
+<h2 align="center"> Lastly aded items</h2>
+    <table align="center" style="width:75%">
+
+        <tr>
+            {% for last in lastitems %}
+                <td>
+                    <div> &nbsp;&nbsp;
+                        <div class="card" style="width: 12rem;">
+                            <a href = '{{url_for('showBooks', bookstore_id=last.bookstore_id)}}'>
+                                 <img class="card-img-top" src="{{last.bookimage}}" alt="book image" >
+                            </a>
+                            <div class="card-body">
+                                <p style="font-size: 12px"> {{last.genre}}</p>
+                            </div>
+                        </div>
+                     </div>
+                </td>
+            {% endfor %}
+        </tr>
+
+    </table>
+
+<br> <br>
+
+<div class="row padding-top padding-bottom">
+    <div class="col-md-1"></div>
+        <div class="col-md-10 padding-none">
+            <h2 style="background-color: #80ced6" align="center">Bookstores ({{ total }})</h2>
+                <h5><i>here the list of registered bookstores</i></h5>
+
+                    {% for bookstore in showbookstores %}
+
+                        <a href = "{{url_for('showBooks', bookstore_id = bookstore.id)}}" class="btn btn-light">
+                            <h4>{{bookstore.name}}</h4>
+                        </a>
+
+                    {% endfor %}
+        </div>
+</div>
+<br>
+
+<div class="row padding-top padding-bottom">
+    <div class="col-md-1"></div>
+        <div class="col-md-10 padding-none">
+            <h2 style="background-color: #80ced6" align="center">All books ({{ totalbook }})</h2>
+                <h5><i>here the list of All books  </i></h5>
+                <p>&nbsp;&nbsp;
+
+                    {% for books in items %}
+                    <a href = '{{url_for('showBooks', bookstore_id=books.bookstore_id)}}'>
+                        <img src="{{books.bookimage}}"  width="90" height="102">
+
+                    </a> &nbsp;
+
+                    {% endfor %}
+
+                </p>
+
+
+        </div>
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
+
+{% endblock %}
