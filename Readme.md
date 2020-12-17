@@ -18,7 +18,7 @@ An Udacity Full Stack Web Developer  Nanodegree project developed by Harun Yenia
 ## Skills used for this project
 - Python Flask
 - HTML, and CSS
-- Bootstrap
+- Bootstrap4
 - Jinja2
 - SQLAchemy
 - OAuth
