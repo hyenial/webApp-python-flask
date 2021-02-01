@@ -6,7 +6,7 @@ An Udacity Full Stack Web Developer  Nanodegree project developed by Harun Yenia
 ## About
 - This application provides a list of items within a variety of categories as well as provide a user registration and authentication system. 
 - Registered users will have the ability to create, edit, and delete their own items (CRUD functionality)
-- for demo you can visit this address http://54.90.149.89/
+- for demo you can visit this address http://50.16.76.250/
 
 ## Features
 
