@@ -64,7 +64,8 @@ http://localhost:5000/bookstores/1/books/1/JSON or change bookstore number and i
 - if you havee flask login problem "ImportError: No module named flask_login
 ", use the this command  pip install flask-login
 
-- if you cannot sign in with Google account please make sure your browser adress must be "http://localhost:5000/login" NOT 0.0.0.5000
-- if you cannot logout please clear cookies in your browser
+- if you cannot sign in with Google account please make sure your browser adress must be "http://localhost:5000/login" <b>NOT 0.0.0.5000 </b>
+- if you cannot logout, please clear cookies in your browser.
+
 
 
